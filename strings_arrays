@@ -1,0 +1,23 @@
+// if you have an array of strings and you want to get rid of short strings
+
+var myArray = [
+  'one',
+  'some randon answer', 
+  'another one',
+  'blablabla',
+  'bal',
+  ' ',
+  'more text here']
+
+// use trim to get rid of spaces at the end of the string
+
+for(var i = 0; i < myArray.length; i++) {
+  if(myArray[i].trim().split(' ').length > 1) { // <-- control string length with this value
+    var textString = ''
+    for(var j = 0; j < myArray[i].split(' ').length; j ++) {
+      textString = textString + myArray[i].split(' ')[j] + ' '
+    }
+    console.log(textString)
+  }
+
+}
