@@ -1,0 +1,47 @@
+// refer to https://www.youtube.com/watch?v=-MTSQjw5DrM
+// start server 'node .'
+// make calls to this endpoint
+// install 'npm install request'
+
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
+const request = require('request');
+
+app.use(express.json())
+
+function postTeams(){
+    var clientServerOptions = {
+        uri: 'https://...', // URL or webhook etc
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({// some body}
+        ),
+    }
+    request(clientServerOptions, function (error, response) {
+        console.log(error,response.body);
+        return;
+    });
+}
+
+app.post('/', (req, res) => {
+    const reqBody = req.body;
+    if(reqBody.ref === 'refs/heads/main' && reqBody.commits !== undefined) {
+        // some code if needed
+        postTeams();
+    }
+    
+    res.send({
+        message: 'Welcome to my API',
+        appname: 'skrel-api',
+        description: 'sends a message to MS Teams'
+    });
+
+});
+
+app.listen(PORT, HOST, () => {
+    console.log('Server started on ' + HOST + ':' + PORT);
+})
