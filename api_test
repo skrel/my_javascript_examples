@@ -42,6 +42,13 @@ app.post('/', (req, res) => {
 
 });
 
+app.post('/postfile', (req, res) => {
+    res.json({ 
+        message: 'POST was fired',
+        description: 'node js'
+     })
+})
+
 app.listen(PORT, HOST, () => {
     console.log('Server started on ' + HOST + ':' + PORT);
 })
