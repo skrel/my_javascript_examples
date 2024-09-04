@@ -1,0 +1,17 @@
+// option 1
+fetch('https://...', {
+	headers: {
+		'Authorization': 'Basic ...'
+	},
+  method: 'GET'
+  // mode: 'no-cors'
+}).then(function (response) {
+	if (response.ok) {
+		return response.json();
+	}
+	throw response;
+}).then(function (data) {
+	console.log(data);
+}).catch(function (error) {
+	console.warn(error);
+});
