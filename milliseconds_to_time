@@ -1,0 +1,22 @@
+// milliseconds to time option 1
+var oneHr = 3600000
+var halfHr = 1800000
+// timestamp to date_time 
+var myTime = new Date(timestamp)
+// convert date_time to US standard time
+var myTimeConverted = myTime.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })
+
+
+// milliseconds to time option 2
+    msToTime(s){
+        let ms = s % 1000;
+        s = (s - ms) / 1000;
+        let secs = s % 60;
+        s = (s - secs) / 60;
+        let mins = s % 60;
+        let hrs = (s - mins) / 60;
+        hrs = hrs < 10 ? '0' + hrs : hrs;
+        mins = mins < 10 ? '0' + mins : mins;
+        console.log(hrs + '  ' + mins);
+        return hrs+':' + mins + ':00.000';
+    }

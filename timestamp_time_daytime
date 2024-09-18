@@ -1,7 +1,0 @@
-// time in milliseconds
-var oneHr = 3600000
-var halfHr = 1800000
-// timestamp to date_time 
-var myTime = new Date(timestamp)
-// convert date_time to US standard time
-var myTimeConverted = myTime.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })
